@@ -1,0 +1,100 @@
+@import url('https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&family=Averia+Libre:ital,wght@1,300&display=swap');
+h1,#typing{
+    font-family:"Amatic SC",sans-serif;
+    text-align: center;
+}
+#typing{
+    font-weight: bold;
+}
+.formPage{
+    position: relative;
+    z-index: 1;
+}
+.form{
+    position: relative;
+    width:min(80%,300px);
+    background: transparent;
+    margin:10px auto;
+    border:1px solid black;
+    border-radius:5px;
+    padding-bottom:20px;
+    box-shadow:2px 2px 4px rgb(100,100,100);
+    /* filter:blur(1px); */
+}
+.form>*{
+    margin:20px;
+    width:80%;
+}
+input{
+    width:100%;
+    border-radius:2px;
+    /* width:180px; */
+    padding-top:10px;
+    
+}
+.input{
+    position:relative;
+    display: block;
+}
+label{
+    color:rgba(100,100,100);
+    position:absolute;
+    left:0;
+    margin:5px;
+    top:0;
+    transition:all 1s;
+}
+.box>*{
+    border-radius:2px;
+}
+.select{
+    height:35px;
+    background:rgba(102, 102, 235, 0.5);
+    color:white;
+    text-align: center;
+    padding-top:10px;
+    box-sizing: border-box;
+    
+
+}
+.select::after{
+    position:relative;
+    content:"";
+    width:0;
+    height:0;
+    border:5px solid transparent;
+    border-top:5px solid white;
+    top:50%;
+    margin:5px;
+}
+
+
+.dropdown{
+    height:calc(52px * 4);
+    overflow-y: scroll;
+    border:1px solid black;
+    display:none;
+    box-sizing: border-box;
+}
+.option{
+    height: 40px;
+    width:inherit;
+    padding:5px;
+    text-align: center;
+    border:1px solid black;
+    color:black;
+}
+.box:hover .dropdown{
+    display:block;
+}
+.option:hover{
+    box-shadow:2px 2px 6px inset black;
+}
+input:valid + label{
+    margin-top:1px;
+    
+    font-size:10px;
+}
+.LoginMessage{
+    position:relative;
+}

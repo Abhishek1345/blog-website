@@ -1,0 +1,53 @@
+.burger{
+    width:35px;
+    height:5px;
+    background:black;
+    border-radius:3px;
+    position:relative;
+    
+}
+.burger::after{
+    content:"";
+    position:absolute;
+    top:8px;
+    width:35px;
+    height:5px;
+    background: black;
+    border-radius:3px;
+}
+.burger::before{
+    content:"";
+    position:absolute;
+    top:16px;
+    width:35px;
+    height:5px;
+    background: black;
+    border-radius:3px;
+}
+.Nav{
+    display:flex;
+    flex-flow:row wrap;
+    justify-content: center;
+    align-content:flex-start;
+}
+.Navelem{
+    display:block;
+    width:100%;
+    height:2rem;
+    margin:10px;
+    text-align: center;
+}
+.close{
+    margin-left:90%;
+    cursor:pointer;
+
+}
+.Navelem > a{
+    text-decoration: none;
+    color:black;
+    
+}
+.Navelem:hover{
+    border:1px solid black;
+    box-shadow:1px 1px 5px black;
+}
