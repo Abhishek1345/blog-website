@@ -1,0 +1,64 @@
+h1.home{
+    font-size:3rem;
+    font-family:"Amatic SC",sans-serif;
+    text-align: center;
+}
+h2.home{
+    font-size:2rem;
+    font-family:"Amatic SC",sans-serif;
+    text-align: center;
+}
+p.home{
+    font-family:"Amatic SC",sans-serif;
+    text-align: center;
+    font-size:1.5rem;
+}
+.wrapper{
+    display: flex;
+    justify-content: center;
+    flex-flow:row wrap;
+    align-items: flex-start;
+    margin-bottom:15%;
+}
+.wrapper>*{
+    width:80%;
+}
+.wrapper>div{
+    display: flex;
+    justify-content: center;
+}
+button.home{
+    margin:0 50px;
+    padding:10px 20px;
+    background:#059862;
+    color:white;
+    border:none;
+    border-radius:20px;
+    min-width:100px;
+    max-width:200px;
+}
+button.home:hover{
+    filter:brightness(60%);
+}
+.form{
+    display:flex;
+    justify-content: center;
+    align-content: flex-start;
+    flex-flow:row wrap;
+}
+.form>*{
+    width:max(230px,50%);
+    margin:2%;
+}
+.form>div{
+    display:flex;
+    justify-content: center;
+}
+.form>input{
+    width:max(200px,41%);
+}
+textarea{
+    height:200px;
+    width:max(230px,60%);
+
+}

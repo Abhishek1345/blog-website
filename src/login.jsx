@@ -1,6 +1,7 @@
 import './form.css';
 import ReactDOM from 'react-dom/client';
 import SignUp from './signup';
+import Navbar from './navbar';
 
 function Login(){
     const rerender=()=>{
@@ -9,18 +10,19 @@ function Login(){
     }
     return(
         <>
+        <Navbar/>
         <h1>Blogger Web</h1>
-        <div class="form">
+        <div className="form">
             <h1>Login</h1>
-        <div class="input"> <input type="text" id="email" required/>
-            <label class="name">Email</label>
+        <div className="input"> <input type="text" id="email" required/>
+            <label className="name">Email</label>
         </div>
-        <div class="input">
+        <div className="input">
         <input type="password" id="password" required/>
-        <label class="pass">
+        <label className="pass">
             password
      </label></div>
-     <button class="submit">Login</button>
+     <button className="submit">Login</button>
      <label className="LoginMessage">Don't have an account? <a href="signup" onClick={rerender}>Sign Up</a></label>
     </div>
     </>

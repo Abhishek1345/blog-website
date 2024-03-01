@@ -4,7 +4,8 @@ function Navbar(){
     
     let navStyle={
         // marginTop:"100px",
-       display:"none",
+      // display:"none",
+      display:"flex",
         width:"0px",
         height:"calc(100vh - 3%)",
         position:"absolute",
@@ -12,7 +13,8 @@ function Navbar(){
         float:"left",
        transform:"translateY(-10px)",
         background:"white",
-        transition:"width 2s",
+        border:"0px solid black",
+        transition:"width 1s cubic-bezier(0,0.5,1,1) , border 1s",
         
 
     };
