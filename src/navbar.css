@@ -1,3 +1,9 @@
+.navContainer{
+    top:5px;
+    position:sticky;
+    z-index:2;
+   
+}
 .burger{
     width:35px;
     height:5px;
