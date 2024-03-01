@@ -28,6 +28,7 @@ input{
     border-radius:2px;
     /* width:180px; */
     padding-top:10px;
+    border:1px solid black;
     
 }
 .input{
@@ -95,4 +96,11 @@ input:valid + label{
 }
 .LoginMessage{
     position:relative;
+}
+.submit{
+    background:#059862;
+    color:white;
+    border:none;
+    border-radius:20px;
+    padding:10px 0;
 }
