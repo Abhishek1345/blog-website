@@ -1,0 +1,19 @@
+.blogInfo{
+    position: relative;
+    width:min(80%,300px);
+    background: transparent;
+    margin:50px auto;
+    border:1px solid black;
+    border-radius:5px;
+    padding:20px;
+    box-shadow:2px 2px 4px rgb(100,100,100);
+
+}
+.button{
+    background:#059862;
+    color:white;
+    border:none;
+    border-radius:20px;
+    padding:10px 25px;
+    
+}

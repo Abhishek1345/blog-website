@@ -8,7 +8,7 @@ h1{
     position: relative;
     z-index: 1;
 }
-.form{
+.form ,.blogInfo{
     position: relative;
     width:min(80%,300px);
     background: transparent;
