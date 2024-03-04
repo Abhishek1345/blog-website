@@ -43,19 +43,6 @@ label{
     top:0;
     transition:all 1s;
 }
-.box>*{
-    border-radius:2px;
-}
-.select{
-    height:35px;
-    background:rgba(102, 102, 235, 0.5);
-    color:white;
-    text-align: center;
-    padding-top:10px;
-    box-sizing: border-box;
-    
-
-}
 .select::after{
     position:relative;
     content:"";
@@ -67,28 +54,6 @@ label{
     margin:5px;
 }
 
-
-.dropdown{
-    height:calc(52px * 4);
-    overflow-y: scroll;
-    border:1px solid black;
-    display:none;
-    box-sizing: border-box;
-}
-.option{
-    height: 40px;
-    width:inherit;
-    padding:5px;
-    text-align: center;
-    border:1px solid black;
-    color:black;
-}
-.box:hover .dropdown{
-    display:block;
-}
-.option:hover{
-    box-shadow:2px 2px 6px inset black;
-}
 input:valid + label{
     margin-top:1px;
     
@@ -102,5 +67,6 @@ input:valid + label{
     color:white;
     border:none;
     border-radius:20px;
-    padding:10px 0;
+    padding:10px 25px;
+    
 }

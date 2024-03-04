@@ -12,7 +12,7 @@ export default function Home(){
       changeText((previousText)=>previousText+targetText.charAt(i));
       if(i<targetText.length-1){
         incr(i+1);
-        console.log("increment");
+      
       }
     },100)
   },[i]);
@@ -24,9 +24,12 @@ export default function Home(){
         
         <h1 className={styles.home}>Blogger Web</h1>
         <p className={styles.home}>{text}</p>
-        <div><button onClick={()=>window.location.assign('/login')} className={styles.home}>Login</button>
-        <button onClick={()=>window.location.assign('/signup')} className={styles.home}>Sign Up</button></div>
-       
+        {(localStorage.getItem("loggedIN")=="false")?
+        (<div><button onClick={()=>window.location.assign('/login')} className={styles.home}>Login</button>
+        <button onClick={()=>window.location.assign('/signup')} className={styles.home}>Sign Up</button></div>):(
+          <div><button onClick={()=>window.location.assign('/compose')} className={styles.home}>Write a Blog</button></div>
+        )
+}
         
       </div>  
       <div className={styles.wrapper}>

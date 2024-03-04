@@ -1,0 +1,17 @@
+.blog{
+    width:80vw;
+    height:60vh;
+    margin:0 auto;
+    display: block;
+    margin-bottom: 20px;
+}
+
+.wrapper{
+    display:flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-flow: row wrap;
+}
+.wrapper>div{
+    width:100%;
+}

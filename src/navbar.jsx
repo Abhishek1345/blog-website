@@ -1,7 +1,17 @@
 import './navbar.css';
-import {useState} from 'react';
+import {useState,useContext} from 'react';
+import { Context } from './login';
 function Navbar(){
+    //const loggedIN=useContext(Context);
+    let [loggedIN,changeStatus]=useState(localStorage.getItem("loggedIN"));
     
+    const Logout=()=>{
+        localStorage.setItem("loggedIN",false);
+        localStorage.setItem("email","");
+        changeStatus(false);
+        alert("succesfully logged out");
+        window.location.assign("/");
+    }
     let navStyle={
         // marginTop:"100px",
       // display:"none",
@@ -30,12 +40,19 @@ function Navbar(){
         <div className="close" onClick={()=>setStyle(navStyle)}>X</div>
        <div className="Navelem"><a href="/">Home</a></div>
        <div className="Navelem"><a href="/blogs">Explore blogs</a></div>
-       <div className="Navelem"><a href="/signup">Sign Up</a></div>
-       <div className="Navelem"><a href="/Login">Login</a></div>
+       { (loggedIN=='false')?
+       (<><div className="Navelem"><a href="/signup">Sign Up</a></div>
+       <div className="Navelem"><a href="/Login">Login</a></div></>):(
+        <>
+        <div className="Navelem"><a href="/compose">Compose blog</a></div>
+        <div className="Navelem" onClick={Logout}>Logut</div>
+        </>
+       )}
 
        </div>
        
        </div>
     );
+   
 }
 export default Navbar;
