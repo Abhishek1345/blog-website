@@ -16,7 +16,8 @@ root.render(
     <Route path='/login' element={<Login/>}></Route>
     <Route path='/compose' element={<Compose/>}></Route>
     <Route path='/blogs/:blogID' element={<Blog/>}></Route>
-    <Route path='/blogs' element={<Explore/>}></Route>
+    <Route path='/blogs' element={<Explore author=""/>}></Route>
+    <Route path='/blogs/user' element={<Explore author={localStorage.getItem("email")}/>}></Route>
   </Routes>
   </BrowserRouter>
 );

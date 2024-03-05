@@ -44,6 +44,7 @@ function Navbar(){
        (<><div className="Navelem"><a href="/signup">Sign Up</a></div>
        <div className="Navelem"><a href="/Login">Login</a></div></>):(
         <>
+        <div className="Navelem"><a href="/blogs/user">My blogs</a></div>
         <div className="Navelem"><a href="/compose">Compose blog</a></div>
         <div className="Navelem" onClick={Logout}>Logut</div>
         </>

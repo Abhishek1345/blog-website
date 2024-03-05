@@ -15,5 +15,9 @@
     border:none;
     border-radius:20px;
     padding:10px 25px;
+    margin:5px;
     
+}
+.button:hover{
+    filter:brightness(60%);
 }
