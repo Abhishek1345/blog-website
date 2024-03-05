@@ -19,6 +19,8 @@ function SignUp(){
             if(this.status==200 && this.readyState==4){
               const res=JSON.parse(xhttp.responseText);
               if(res.status=="OK"){
+             localStorage.setItem("loggedIN","true");
+             localStorage.setItem("email",data.email);
               alert("succesfully registered")
               window.location.assign("/blogs");
               }
