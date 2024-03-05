@@ -50,7 +50,7 @@ export default function Home(){
           tech and share you knowlede with the world.
           
         </p>
-        <div><button className={styles.home}>Explore</button></div>
+        <div><button className={styles.home} onClick={()=>window.location.assign("/blogs")}>Explore</button></div>
       </div>
       <div className={styles.wrapper}>
         <h2 className={styles.home}>Contact US</h2>
