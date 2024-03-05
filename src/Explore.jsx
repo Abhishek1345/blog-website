@@ -26,7 +26,7 @@ const Delete=(id)=>{
          }
 }
 const Edit=(id)=>{
-
+   window.location.assign("/edit/"+id);
 }
 
 useEffect(
@@ -37,6 +37,9 @@ useEffect(
            let data=JSON.parse(xhttp.responseText);
            console.log(data.blogIDs);
            let temp=[<Navbar key={-1}/>];
+           if(data.blogIDs.length==0){
+            temp.push(<h1>sorry we don have any blogs to showh here <br/>consider writing one! </h1>)
+           }
            data.blogIDs.map((blogID,i)=>{
            
             temp.push((<div className={styles.blogInfo} key={i}>

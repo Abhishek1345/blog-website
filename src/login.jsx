@@ -33,7 +33,7 @@ function Login(){
                 changeStatus(true);
                 localStorage.setItem("email",data.email);
               alert("succesfully logged in");
-              window.location.assign("/compose");
+              window.location.assign("/blogs");
               }
               else{
                 if(res.err_code=="WRONG_PASS")

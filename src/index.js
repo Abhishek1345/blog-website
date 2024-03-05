@@ -7,6 +7,7 @@ import Login from './login';
 import Compose from './Compose';
 import Blog from './Blog';
 import Explore from './Explore';
+import Edit from './Edit';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <BrowserRouter>
@@ -18,6 +19,7 @@ root.render(
     <Route path='/blogs/:blogID' element={<Blog/>}></Route>
     <Route path='/blogs' element={<Explore author=""/>}></Route>
     <Route path='/blogs/user' element={<Explore author={localStorage.getItem("email")}/>}></Route>
+    <Route path='edit/:blogID' element={<Edit/>}></Route>
   </Routes>
   </BrowserRouter>
 );

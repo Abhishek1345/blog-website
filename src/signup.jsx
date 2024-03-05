@@ -18,10 +18,13 @@ function SignUp(){
         xhttp.onreadystatechange=function(){
             if(this.status==200 && this.readyState==4){
               const res=JSON.parse(xhttp.responseText);
-              if(res.status=="OK")
+              if(res.status=="OK"){
               alert("succesfully registered")
-              else
+              window.location.assign("/blogs");
+              }
+              else{
               alert("email already registered");
+              }
             }
         }
         xhttp.open("POST","http://localhost:8080/signup",true);

@@ -1,9 +1,32 @@
 import Navbar from './navbar';
 import styles from './Compose.module.css';
-import {useState} from 'react';
-function Compose(){
+import {useEffect, useState} from 'react';
+import { useParams } from 'react-router-dom';
+function Edit(){
+const params=useParams();
 let [text,changeText]=useState("");
 let [title,changeTitle]=useState("");
+useEffect(()=>{
+    const xhttp=new XMLHttpRequest();
+    xhttp.onreadystatechange=function(){
+        if(this.status==200 && this.readyState==4){
+            let data=JSON.parse(xhttp.responseText);
+           if(data.title==undefined || data.blog==undefined){
+          
+           }
+            
+            changeTitle(data.title);
+            changeText(data.blog);
+        }
+    }
+    xhttp.open("POST","http://localhost:8080/retrieve",true);
+    xhttp.send(JSON.stringify(
+        {
+            blogID:params.blogID,
+           
+        }
+    ))
+},[])
 const Publish=()=>{
   if(title==""){
       alert("title cannot be empty");
@@ -13,7 +36,7 @@ const Publish=()=>{
     alert("blog cannot be empty");
     return;
   }
-  let xhttp=new XMLHttpRequest();
+  const xhttp=new XMLHttpRequest();
   xhttp.onreadystatechange=function(){
     if(this.status==200 && this.readyState==4){
         var res=JSON.parse(xhttp.responseText);
@@ -31,8 +54,8 @@ const Publish=()=>{
   xhttp.send(JSON.stringify({
     blog:text,
     title:title,
-    author:localStorage.getItem("email"),
-    edit:false
+    blogID:params.blogID,
+    edit:true
   }))
 }
     return(
@@ -53,4 +76,4 @@ const Publish=()=>{
       </>
     );
 }
-export default Compose;
+export default Edit;

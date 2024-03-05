@@ -38,14 +38,14 @@ function Navbar(){
        <div className="burger" onClick={()=>changestyle("250px")}></div>
        <div className="Nav" style={style}>
         <div className="close" onClick={()=>setStyle(navStyle)}>X</div>
-       <div className="Navelem"><a href="/">Home</a></div>
-       <div className="Navelem"><a href="/blogs">Explore blogs</a></div>
+       <div className="Navelem" onClick={()=>window.location.assign("/")}>Home</div>
+       <div className="Navelem" onClick={()=>window.location.assign("/blogs")}>Explore blogs</div>
        { (loggedIN=='false')?
-       (<><div className="Navelem"><a href="/signup">Sign Up</a></div>
-       <div className="Navelem"><a href="/Login">Login</a></div></>):(
+       (<><div className="Navelem" onClick={()=>window.location.assign("/signup")}>Sign Up</div>
+       <div className="Navelem" onClick={()=>window.location.assign("/login")}>Login</div></>):(
         <>
-        <div className="Navelem"><a href="/blogs/user">My blogs</a></div>
-        <div className="Navelem"><a href="/compose">Compose blog</a></div>
+        <div className="Navelem" onClick={()=>window.location.assign("/blogs/user")}>My blogs</div>
+        <div className="Navelem" onClick={()=>window.location.assign("/compose")}>Compose blog</div>
         <div className="Navelem" onClick={Logout}>Logut</div>
         </>
        )}
