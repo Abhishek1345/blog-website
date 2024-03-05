@@ -13,24 +13,16 @@ function Navbar(){
         window.location.assign("/");
     }
     let navStyle={
-        // marginTop:"100px",
-      // display:"none",
-      display:"flex",
         width:"0px",
-        height:"calc(100vh - 3%)",
-        position:"absolute",
-        zIndex:"2",
-        float:"left",
-       transform:"translateY(-10px)",
-        background:"white",
+        
         border:"0px solid black",
-        transition:"width 1s cubic-bezier(0,0.5,1,1) , border 1s",
+        
         
 
     };
     const [style,setStyle]=useState(navStyle);
     const changestyle=(val,)=>{
-        setStyle((previousState)=>{return {...previousState,border:"2px solid black",width:val,display:"flex"}});
+        setStyle({border:"2px solid black",width:val});
         
     }
     return(

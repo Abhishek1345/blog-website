@@ -36,6 +36,13 @@
     justify-content: center;
     align-content:flex-start;
     overflow:hidden;
+    height:calc(100vh - 3%);
+    position:absolute;
+    z-index:2;
+    float:"left";
+    transform:translateY(-10px);
+    background:white;
+    transition:width 1s cubic-bezier(0,0.5,1,1) , border 1s;
 }
 .Navelem{
     display:block;
