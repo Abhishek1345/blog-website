@@ -21,12 +21,10 @@ app.post('/signup',(req,res)=>{
     req.on("end",()=>{
         data=JSON.parse(data);
       
-      let sql=`insert into users(email,name,pass) values('`
-      +data.email+
-      `','`+data.name+
-      `','`+data.pass+`')`;
-      con.query(sql,(err,result)=>{
+      let sql=`insert into users(email,name,pass) values ?`
+      con.query(sql,[[[data.email,data.name,data.pass]]],(err,result)=>{
           if(err) {
+            throw err;
              res.send(JSON.stringify(
               {
                   status:"ERR",
@@ -54,8 +52,8 @@ app.post('/login',(req,res)=>{
     req.on("end",()=>{
         data=JSON.parse(data);
       
-      let sql=`select pass from users where email='`+data.email+`';`;
-      con.query(sql,(err,result)=>{
+      let sql=`select pass from users where email=?;`
+      con.query(sql,[[[data.email]]],(err,result)=>{
           if(err) {
              res.send(JSON.stringify(
               {
@@ -98,17 +96,13 @@ app.post('/publish',(req,res)=>{
     req.on("end",()=>{
         data=JSON.parse(data);
      
-      let sql=`insert into blogss(author,blog,title) values('`
-      +data.author+
-      `','`+data.blog+
-      `','`+data.title+`')`;
-      console.log(data.edit+" "+data.edit==true);
-      if(data.edit==true){
-        sql=`update blogss set title='`+data.title+
-        `',blog='`+data.blog+`' where blogID=`+data.blogID+`;`;
-      }
-      con.query(sql,(err,result)=>{
+      let sql=`insert into blogss(author,blog,title) values ?;`;
+
+    let values=[[data.author,data.blog,data.title]];
+     
+      con.query(sql,[values],(err,result)=>{
           if(err) {
+            
              res.send(JSON.stringify(
               {
                   status:"ERR",
@@ -128,6 +122,38 @@ app.post('/publish',(req,res)=>{
 })
     })
 });
+app.post('/edit',(req,res)=>{
+    let data="";
+    req.on("data",(dt)=>{
+        data+=dt;
+    });
+    req.on("end",()=>{
+        data=JSON.parse(data);
+        let sql=`update blogss set title=?,blog=? where blogID=?;`
+        con.query(sql,[[[data.title]],[[data.blog]],[[data.blogID]]],(err,result)=>{
+            if(err) {
+              throw err;
+               res.send(JSON.stringify(
+                {
+                    status:"ERR",
+                    err_code:err.code
+  
+                
+                }
+               ))
+               console.log(err);
+            }
+            else{
+                res.send(JSON.stringify(
+                    {
+                        status:"OK"
+                    }
+                ))
+            }
+  })
+
+    })
+})
 app.post('/retrieve',(req,res)=>{
     let data="";
     req.on("data",(dt)=>{
@@ -136,8 +162,8 @@ app.post('/retrieve',(req,res)=>{
     req.on("end",()=>{
         data=JSON.parse(data);
       
-      let sql=`select blog,title from blogss where blogID=`+data.blogID+`;`;
-      con.query(sql,(err,result)=>{
+      let sql=`select blog,title from blogss where blogID=?;`;
+      con.query(sql,[[[data.blogID]]],(err,result)=>{
           if(err) {
              res.send(JSON.stringify(
               {
@@ -181,14 +207,13 @@ app.post('/list',(req,res)=>{
         console.log(data.author);
         console.log(data);
         if(data.author!=""){
-            sql=`select blogID,title,author from blogss where author='`+data.author+
-            `';`
+            sql=`select blogID,title,author from blogss where author=?;`;
         }
     
     let blogIDs=[];
     let authors=[];
     let titles=[];
-    con.query(sql,(err,result)=>{
+    con.query(sql,[[[data.author]]],(err,result)=>{
         if(err){
             console.log(err);
             res.send(JSON.stringify({
@@ -223,8 +248,8 @@ app.post("/delete",(req,res)=>{
     })
     req.on("end",()=>{
         data=JSON.parse(data);
-        let sql=`delete from blogss where blogID=`+data.blogID+`;`;
-        con.query(sql,(err,result)=>{
+        let sql=`delete from blogss where blogID=?;`;
+        con.query(sql,[[[data.blogID]]],(err,result)=>{
             if(err){
                 console.log(err);
                 res.send(

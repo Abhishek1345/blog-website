@@ -50,7 +50,7 @@ const Publish=()=>{
         }
     }
   }
-  xhttp.open("POST","http://localhost:8080/publish",true);
+  xhttp.open("POST","http://localhost:8080/edit",true);
   xhttp.send(JSON.stringify({
     blog:text,
     title:title,

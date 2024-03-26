@@ -25,7 +25,8 @@ function SignUp(){
               window.location.assign("/blogs");
               }
               else{
-              alert("email already registered");
+             // alert("email already registered");
+             console.log(res.err_code);
               }
             }
         }
